@@ -1,2 +1,18 @@
 @import "bootstrap-sprockets";
+@import "variables";
 @import "bootstrap";
+
+// Navbar
+
+.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
+
+}
+
+ul.dropdown-menu li a{
+  color: $text-color !important;
+}
+
+.open a.dropdown-toggle {
+  background-color: $brand-info !important;
+  color: white !important;
+}
