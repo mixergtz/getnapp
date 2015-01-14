@@ -3,9 +3,14 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "variables";
+@import "agency";
 
-.section-intro h2{
+.section-intro h2, .section-how-works{
   color: $brand-info;
+}
+
+.section-how-works > .section-subheading{
+  margin-bottom: 50px;
 }
 
 .section-intro p{
