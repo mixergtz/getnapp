@@ -2,12 +2,12 @@
 @import "variables";
 @import "bootstrap";
 
-// Navbar
-
-.navbar-default .navbar-nav > li > a:hover, .navbar-default .navbar-nav > li > a:focus{
-
+body{
+  -webkit-font-smoothing: antialiased;
 }
 
+
+// Navbar
 ul.dropdown-menu li a{
   color: $text-color !important;
 }
@@ -16,3 +16,5 @@ ul.dropdown-menu li a{
   background-color: $brand-info !important;
   color: white !important;
 }
+
+

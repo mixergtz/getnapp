@@ -1,3 +1,34 @@
 // Place all the styles related to the static controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "variables";
+
+.section-intro h2{
+  color: $brand-info;
+}
+
+.section-intro p{
+  font-size: $section-font-size;
+}
+
+.featured .well{
+  padding: 0;
+  min-height: 350px;
+  h3{
+    padding-top: 50%;
+    color: white;
+  }
+}
+
+.navbar-brand {
+  color: $text-color !important;
+}
+
+.site-heading{
+  padding-top: 130px !important;
+}
+
+span.subheading{
+  margin-bottom: 20px !important;
+}
