@@ -37,3 +37,48 @@
 span.subheading{
   margin-bottom: 20px !important;
 }
+
+.home-footer{
+  width: 100% !important;
+}
+
+.waiting-wrapper{
+  margin-top: 50px;
+  color: white;
+  min-height: 200px;
+
+  h3{
+    padding-top: 9%;
+  }
+}
+
+.footer{
+  padding: 30px 0;
+  min-height: 300px;
+  background-color: #2b2d2e;
+
+  .list-unstyled > li a{
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    &:hover{
+      color: $text-color;
+    }
+  }
+
+  h4{
+    color: white;
+    font-weight: bold;
+  }
+
+  .social-media{
+    li i:hover{
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  hr{
+    border-top-color: $text-color;
+  }
+}
