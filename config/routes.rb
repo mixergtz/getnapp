@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get "company" => "static#company"
   get "more_info" => "static#more_info"
 
-  resources :hotels
-  get "hotels" => "hotels#index", path: :s, as: :s
+  resources :rooms
+  get "rooms" => "rooms#index", path: :s, as: :s
 
 
   # The priority is based upon order of creation: first created -> highest priority.
