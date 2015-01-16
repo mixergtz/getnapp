@@ -52,7 +52,7 @@
             </div>
         </div>
       <div class="col-md-8 col-md-offset-2 text-center">
-        <form class="navbar-form" role="search">
+        <!-- <form class="navbar-form" role="search">
             <div class="form-group text-center">
               <input type="text" class="form-control" placeholder="Search">
               <input type="time" class="form-control" placeholder="Arrival Time">
@@ -63,7 +63,13 @@
               </select>
             </div>
           <button type="submit" class="btn btn-danger">Search</button>
-        </form>
+        </form> -->
+        <%= form_tag s_path, method: :get do %>
+          <div class="form-group">
+            <%= text_field_tag :q, params[:q], class: "form-control", placeholder: "Query" %>
+          </div>
+          <%= submit_tag "Search", name: nil, class: "btn btn-danger" %>
+        <% end %>
       </div>
     </div>
 </header>

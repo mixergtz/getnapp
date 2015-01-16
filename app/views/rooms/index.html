@@ -1,0 +1,95 @@
+<div class="container results-main container-full">
+  <div class="row">
+    <div class="col-md-7 col-sm-7 results-elements ">
+        <div class="row filters" >
+          <div class="col-md-12">
+            <br>
+            <div class="row">
+              <div class="col-md-3 text-right">
+                <h5>Arrival Time</h5>
+              </div>
+              <div class=" col-md-3">
+                <%= time_field_tag :q, params[:q], class: "form-control", placeholder: "Query" %>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-3 text-right">
+                <h5>Hours</h5>
+              </div>
+              <div class="col-md-3">
+                <%= check_box_tag :hours, params[:q], class: "form-control" %>
+                <%= label_tag :hours, "3 hours", class: 'category_select' %>
+              </div>
+              <div class="col-md-3">
+                <%= check_box_tag :hours, params[:q], class: "form-control" %>
+                <%= label_tag :hours, "6 hours", class: 'category_select' %>
+              </div>
+              <div class="col-md-3">
+                <%= check_box_tag :hours, params[:q], class: "form-control" %>
+                <%= label_tag :hours, "12 hours", class: 'category_select' %>
+              </div>
+              <hr>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-md-3 text-right">
+                <h5>Price Range</h5>
+              </div>
+              <div class="col-md-9">
+                Slider goes here :)
+              </div>
+            </div>
+            <br>
+          </div>
+        </div>
+
+        <br>
+
+        <div class="col-md-6 listing-preview">
+          <div class="image">
+            <img src="https://a1.muscache.com/ic/pictures/26852575/6efc2dc0_original.jpg?interpolation=lanczos-none&size=x_medium&output-format=jpg&output-quality=70" width="100%" alt="">
+            <h4 class="price">$15/h</h4>
+          </div>
+          <div class="description">
+          <h5>Super hotel blabla
+            <span class="stars pull-right">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </span>
+          </h5>
+            <p class="text-muted">Calle falsa #123, New York</p>
+          </div>
+        </div>
+
+        <% 10.times do %>
+
+        <div class="col-md-6 listing-preview">
+          <div class="image">
+            <img src="https://a1.muscache.com/ic/pictures/26573197/0a75b6dd_original.jpg?interpolation=lanczos-none&size=x_medium&output-format=jpg&output-quality=70" width="100%" alt="">
+            <h4 class="price">$10/h</h4>
+          </div>
+          <div class="description">
+          <h5>Mega hotel
+            <span class="stars pull-right">
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+              <i class="fa fa-star"></i>
+            </span>
+          </h5>
+            <p class="text-muted">Avenida Siempre Viva, Springfield</p>
+          </div>
+        </div>
+
+        <% end %>
+
+
+
+    </div>
+    <div class="col-md-5 col-sm-7 results-map hidden-xs">
+      <div id="map-canvas"></div>
+    </div>
+  </div>
+</div>
