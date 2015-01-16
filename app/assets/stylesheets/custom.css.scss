@@ -32,3 +32,15 @@ ul.dropdown-menu li a{
 .main-wrapper{
   margin-top: 50px;
 }
+
+// Container without margin and full width (ideally to place full width rows)
+.container-full{
+    width: 100%;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+//Rating stars across the site
+.stars{
+    color: $listing-stars-color;
+}

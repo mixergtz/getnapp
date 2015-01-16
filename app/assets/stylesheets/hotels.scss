@@ -2,7 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
+////////////////////////////////////////////
+//            INDEX/SEARCH
+////////////////////////////////////////////
 #map-canvas{
   width: 100%;
   height: 93vh;
@@ -14,15 +16,16 @@
 }
 
 .results-main{
-  width: 100%;
-  margin-left: 0px;
-  margin-right: 0px;
-  height: 93vh;
 }
 
 .results-elements{
   height: 93vh;
   overflow-y: scroll;
+
+  .filters{
+    background-color: $search-filters-color;
+    border-bottom: $borders-color 1px solid;
+  }
 }
 
 .listing-preview{
@@ -33,10 +36,6 @@
     h5{
       margin-bottom: 0px;
     }
-  }
-
-  .stars{
-    color: $listing-stars-color;
   }
 
   .image{
@@ -50,4 +49,43 @@
     }
   }
 
+}
+
+////////////////////////////////////////////
+//            SHOW HOTEL
+////////////////////////////////////////////
+.hotel-main-img .intro-header{
+  height: 60vh;
+  margin-bottom: 0px;
+}
+
+.hotel-summary{
+  background-color: $hotel-header-info-color;
+  border-bottom: $borders-color 1px solid;
+  h3{
+    margin-bottom: 5px;
+  }
+  padding-bottom: 20px;
+
+  [class^="icon"]{
+    font-size: 30px;
+  }
+}
+
+.book-form{
+  border: $borders-color 1px solid;
+  padding: 10px;
+
+  .btn{
+    width: 100%;
+  }
+
+  .price{
+    margin-top: -52px;
+    background-color: $listing-price-color;
+    padding: 1px;
+    margin-left: -10px;
+    margin-right: -10px;
+    color: white;
+  }
 }
