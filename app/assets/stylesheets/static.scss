@@ -1,0 +1,84 @@
+// Place all the styles related to the static controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "variables";
+@import "agency";
+
+.section-intro h2, .section-how-works{
+  color: $brand-info;
+}
+
+.section-how-works > .section-subheading{
+  margin-bottom: 50px;
+}
+
+.section-intro p{
+  font-size: $section-font-size;
+}
+
+.featured .well{
+  padding: 0;
+  min-height: 350px;
+  h3{
+    padding-top: 50%;
+    color: white;
+  }
+}
+
+.navbar-brand {
+  color: $text-color !important;
+}
+
+.site-heading{
+  padding-top: 130px !important;
+}
+
+span.subheading{
+  margin-bottom: 20px !important;
+}
+
+.home-footer{
+  width: 100% !important;
+}
+
+.waiting-wrapper{
+  margin-top: 50px;
+  color: white;
+  min-height: 200px;
+
+  h3{
+    padding-top: 9%;
+  }
+}
+
+.footer{
+  padding: 30px 0;
+  min-height: 300px;
+  background-color: #2b2d2e;
+
+  .list-unstyled > li a{
+    color: white;
+    cursor: pointer;
+    text-decoration: none;
+    &:hover{
+      color: $text-color;
+    }
+  }
+
+  h4{
+    color: white;
+    font-weight: bold;
+  }
+
+  .social-media{
+    li i:hover{
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  hr{
+    border-top-color: $text-color;
+  }
+}
