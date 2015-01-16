@@ -1,13 +1,19 @@
 @import "bootstrap-sprockets";
 @import "variables";
 @import "bootstrap";
+@import "hotels";
+@import "static";
+
+// Vendor
+@import "clean_blog";
+@import "agency";
 
 body{
   -webkit-font-smoothing: antialiased;
 }
 
 
-// Navbar
+// Static pages Navbar
 ul.dropdown-menu li a{
   color: $text-color !important;
 }
@@ -19,4 +25,10 @@ ul.dropdown-menu li a{
 
 .waiting-wrapper{
   background-color: $brand-danger;
+}
+
+//Main div wrapper to compensate application navbar
+
+.main-wrapper{
+  margin-top: 50px;
 }
