@@ -4,8 +4,12 @@ Rails.application.routes.draw do
   get "company" => "static#company"
   get "more_info" => "static#more_info"
 
-  resources :rooms
+  namespace :admin do
+    resources :rooms
+  end
+
   get "rooms" => "rooms#index", path: :s, as: :s
+  get "rooms/:id" => "rooms#show"
 
 
   # The priority is based upon order of creation: first created -> highest priority.
