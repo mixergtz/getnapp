@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#<%= "room-av-#{availability.id}" %>" aria-expanded="false" aria-controls="<%= "room-av-#{availability.id}" %>" class="collapsed">
+          <%= availability.start.to_formatted_s(:short) %>  <span class="pull-right"><%= availability.available?? "Available" : "Not available" %> | <%= "$#{availability.price}" %></span>
+        </a>
+      </h4>
+    </div>
+    <div id="<%= "room-av-#{availability.id}" %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+        Edit form for update this availability
+      </div>
+    </div>
+  </div

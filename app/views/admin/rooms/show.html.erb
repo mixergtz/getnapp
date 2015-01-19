@@ -11,7 +11,12 @@
         <%= @room.description %>
       </div>
       <div class="panel-body">
-        Availabilities
+        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+          <% @room.room_availabilities.each do |availability| %>
+            <%= render partial: "availability", locals: { availability: availability} %>
+            <br>
+          <% end %>
+        </div>
       </div>
       <div class="panel-footer text-center">
         <%= link_to 'Back', admin_rooms_path, class: "btn btn-default" %>
