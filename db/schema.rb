@@ -11,10 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150119153815) do
+ActiveRecord::Schema.define(version: 20150119161644) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "room_availabilities", force: :cascade do |t|
+    t.integer  "room_id"
+    t.datetime "start"
+    t.integer  "hours",      default: 0
+    t.boolean  "available",  default: false
+    t.integer  "price",      default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "room_availabilities", ["room_id"], name: "index_room_availabilities_on_room_id", using: :btree
 
   create_table "rooms", force: :cascade do |t|
     t.string   "name"
@@ -28,4 +40,5 @@ ActiveRecord::Schema.define(version: 20150119153815) do
     t.datetime "updated_at",              null: false
   end
 
+  add_foreign_key "room_availabilities", "rooms"
 end
