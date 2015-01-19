@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        <div class="row">
+          <div class="col-md-12"><h3><%= @room.name %></h3></div>
+        </div>
+      </div>
+      <div class="panel-heading">
+        <%= @room.description %>
+      </div>
+      <div class="panel-body">
+        Availabilities
+      </div>
+      <div class="panel-footer text-center">
+        <%= link_to 'Back', admin_rooms_path, class: "btn btn-default" %>
+      </div>
+    </div>
+  </div>
+</div>
+
+
