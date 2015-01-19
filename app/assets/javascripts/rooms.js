@@ -13,4 +13,6 @@ $(document).ready(function(){
       title: 'Hello World!'
   });
 
+  $('.datetimepicker').datetimepicker();
+
 });
