@@ -9,7 +9,7 @@
     <div id="<%= "room-av-#{availability.id}" %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
 
-        <%= form_for [:admin, @room, availability], html: {class: "form-inline"} do |f| %>
+        <%= form_for [:admin, @hotel, @room, availability], html: {class: "form-inline"} do |f| %>
 
           <div class="form-group">
             <%= f.label :start, "Start Date/Time Availability" %><br />

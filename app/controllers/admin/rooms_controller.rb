@@ -3,10 +3,12 @@ class Admin::RoomsController < ApplicationController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 
   def index
+    @hotel = Hotel.find(params[:hotel_id])
     @rooms = Room.all
   end
 
   def show
+    @hotel = Hotel.find(params[:hotel_id])
   end
 
   def new
@@ -16,7 +18,7 @@ class Admin::RoomsController < ApplicationController
   def create
     @room = Room.new(room_params)
     if @room.save
-      redirect_to admin_rooms_path, notice: "Room created"
+      redirect_to admin_hotel_rooms_path, notice: "Room created"
     else
       render :new
     end
@@ -28,7 +30,7 @@ class Admin::RoomsController < ApplicationController
   def update
     @room = Room.update(room_params)
     if @room.save
-      redirect_to admin_rooms_path, notice: "Room edited"
+      redirect_to admin_hotel_rooms_path, notice: "Room edited"
     else
       render :edit
     end
@@ -36,7 +38,7 @@ class Admin::RoomsController < ApplicationController
 
   def destroy
     @room.destroy
-    redirect_to admin_rooms_path, notice: 'Room was successfully destroyed.'
+    redirect_to admin_hotel_rooms_path, notice: 'Room was successfully destroyed.'
   end
 
   private

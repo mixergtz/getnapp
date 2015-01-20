@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
+
   root 'static#index'
 
   get "company" => "static#company"
   get "more_info" => "static#more_info"
 
   namespace :admin do
-    resources :rooms do
-      resources :room_availabilities,  path: :avalability
+    resources :hotels do
+      resources :rooms do
+        resources :room_availabilities,  path: :avalability
+      end
     end
+
+
+
   end
 
   get "rooms" => "rooms#index", path: :s, as: :s

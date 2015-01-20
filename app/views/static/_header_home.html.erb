@@ -52,21 +52,12 @@
             </div>
         </div>
       <div class="col-md-8 col-md-offset-2 text-center">
-        <!-- <form class="navbar-form" role="search">
-            <div class="form-group text-center">
-              <input type="text" class="form-control" placeholder="Search">
-              <input type="time" class="form-control" placeholder="Arrival Time">
-              <input type="time" class="form-control" placeholder="Arrival Time">
-              <select class="form-control">
-                <option>1</option>
-                <option>2</option>
-              </select>
-            </div>
-          <button type="submit" class="btn btn-danger">Search</button>
-        </form> -->
-        <%= form_tag s_path, method: :get do %>
+        <%= form_tag s_path, class: "navbar-form", method: :get do %>
           <div class="form-group">
-            <%= text_field_tag :q, params[:q], class: "form-control", placeholder: "Query" %>
+            <%= text_field_tag :location, params[:location], class: "form-control", placeholder: "Location" %>
+          </div>
+          <div class="form-group">
+            <%= datetime_select :arrival, params[:arrival], {ampm: true}, { class: "form-control" } %>
           </div>
           <%= submit_tag "Search", name: nil, class: "btn btn-danger" %>
         <% end %>

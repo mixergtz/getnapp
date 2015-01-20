@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150119161644) do
+ActiveRecord::Schema.define(version: 20150119215100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "hotels", force: :cascade do |t|
+    t.string   "name"
+    t.string   "image"
+    t.string   "address"
+    t.text     "description"
+    t.float    "latitude"
+    t.float    "longitude"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "room_availabilities", force: :cascade do |t|
     t.integer  "room_id"
@@ -38,7 +49,10 @@ ActiveRecord::Schema.define(version: 20150119161644) do
     t.string   "image"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
+    t.integer  "hotel_id"
   end
+
+  add_index "rooms", ["hotel_id"], name: "index_rooms_on_hotel_id", using: :btree
 
   add_foreign_key "room_availabilities", "rooms"
 end

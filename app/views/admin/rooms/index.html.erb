@@ -1,5 +1,5 @@
 <div class="container">
-  <h3>Todas las rooms</h3>
+  <h3>Rooms for <%=  @hotel.name %></h3>
 
   <table class="table table-hover">
     <thead>
@@ -14,12 +14,12 @@
           <tr>
             <th><%= room.name %></th>
             <th><%= room.address %></th>
-            <th><%= link_to "See Room", admin_room_path(room) %></th>
+            <th><%= link_to "See Room", admin_hotel_room_path(@hotel, room) %></th>
           </tr>
         <% end %>
     </tbody>
   </table>
 
-  <%= link_to "New room", new_admin_room_path %>
+  <%= link_to "New room", new_admin_hotel_room_path %>
 </div>
 

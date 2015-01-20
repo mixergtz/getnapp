@@ -2,6 +2,7 @@ class Admin::RoomAvailabilitiesController < ApplicationController
   layout "admin"
   before_action :set_room_availability, only: [:update, :destroy]
   before_action :set_room, only: [:new, :create]
+  before_action :set_hotel
 
   def new
     @room_availability = @room.room_availabilities.new
@@ -9,7 +10,7 @@ class Admin::RoomAvailabilitiesController < ApplicationController
 
   def create
     if @room.room_availabilities.create(room_availability_params)
-      redirect_to admin_room_path(@room), notice: "Availability for this room created"
+      redirect_to admin_hotel_room_path(@hotel, @room), notice: "Availability for this room created"
     else
       render :new
     end
@@ -17,15 +18,15 @@ class Admin::RoomAvailabilitiesController < ApplicationController
 
   def update
     if @room_availability.update(room_availability_params)
-      redirect_to admin_room_path(@room_availability.room), notice: "Room Availability edited"
+      redirect_to admin_hotel_room_path(@hotel, @room_availability.room), notice: "Room Availability edited"
     else
-      redirect_to admin_room_path(@room_availability.room), notice: "Error Room Availability not updated"
+      redirect_to admin_hotel_room_path(@hotel, @room_availability.room), notice: "Error Room Availability not updated"
     end
   end
 
   def destroy
     @room_availability.destroy
-    redirect_to admin_room(@room_availability.room), notice: 'Room Availability was successfully destroyed.'
+    redirect_to admin_hotel_room(@room_availability.room), notice: 'Room Availability was successfully destroyed.'
   end
 
   private
@@ -36,6 +37,10 @@ class Admin::RoomAvailabilitiesController < ApplicationController
 
     def set_room
       @room = Room.find(params[:room_id])
+    end
+
+    def set_hotel
+      @hotel = Hotel.find(params[:hotel_id])
     end
 
 
