@@ -13,7 +13,7 @@
         <% @rooms.each do |room| %>
           <tr>
             <th><%= room.name %></th>
-            <th><%= room.address %></th>
+            <th><%= room.hotel.address %></th>
             <th><%= link_to "See Room", admin_hotel_room_path(@hotel, room) %></th>
           </tr>
         <% end %>
