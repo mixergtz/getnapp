@@ -128,6 +128,7 @@ GEM
     formatador (0.2.5)
     friendly_id (5.1.0.beta.1)
       activerecord (>= 4.0.0)
+    geocoder (1.2.6)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
     guard (2.11.1)
@@ -317,6 +318,7 @@ DEPENDENCIES
   faker (~> 1.1.2)
   fog (= 1.23.0)
   friendly_id (= 5.1.0.beta.1)
+  geocoder
   guard-livereload
   jbuilder (~> 2.0)
   jquery-rails

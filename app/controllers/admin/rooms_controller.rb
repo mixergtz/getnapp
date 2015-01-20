@@ -1,14 +1,13 @@
 class Admin::RoomsController < ApplicationController
   layout "admin"
+  before_action :set_hotel
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 
   def index
-    @hotel = Hotel.find(params[:hotel_id])
     @rooms = Room.all
   end
 
   def show
-    @hotel = Hotel.find(params[:hotel_id])
   end
 
   def new
@@ -16,7 +15,7 @@ class Admin::RoomsController < ApplicationController
   end
 
   def create
-    @room = Room.new(room_params)
+    @room = @hotel.rooms.new(room_params)
     if @room.save
       redirect_to admin_hotel_rooms_path, notice: "Room created"
     else
@@ -45,6 +44,10 @@ class Admin::RoomsController < ApplicationController
 
     def set_room
       @room = Room.find(params[:id])
+    end
+
+    def set_hotel
+      @hotel = Hotel.find(params[:hotel_id])
     end
 
 

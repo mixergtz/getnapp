@@ -9,7 +9,7 @@
                 <h5>Arrival Time</h5>
               </div>
               <div class=" col-md-3">
-                <%= time_field_tag :q, params[:q], class: "form-control", placeholder: "Query" %>
+                <%= datetime_select :arrival, params[:arrival], {ampm: true, default: @search_date}, { class: "form-control" } %>
               </div>
             </div>
             <hr>
@@ -44,48 +44,15 @@
           </div>
         </div>
 
+
+        <br>
         <br>
 
-        <div class="col-md-6 listing-preview">
-          <div class="image">
-            <img src="https://a1.muscache.com/ic/pictures/26852575/6efc2dc0_original.jpg?interpolation=lanczos-none&size=x_medium&output-format=jpg&output-quality=70" width="100%" alt="">
-            <h4 class="price">$15/h</h4>
-          </div>
-          <div class="description">
-          <h5>Super hotel blabla
-            <span class="stars pull-right">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </span>
-          </h5>
-            <p class="text-muted">Calle falsa #123, New York</p>
-          </div>
-        </div>
+        <%  @available_rooms_near.try(:each) do |room_available|  %>
 
-        <% 10.times do %>
-
-        <div class="col-md-6 listing-preview">
-          <div class="image">
-            <img src="https://a1.muscache.com/ic/pictures/26573197/0a75b6dd_original.jpg?interpolation=lanczos-none&size=x_medium&output-format=jpg&output-quality=70" width="100%" alt="">
-            <h4 class="price">$10/h</h4>
-          </div>
-          <div class="description">
-          <h5>Mega hotel
-            <span class="stars pull-right">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-            </span>
-          </h5>
-            <p class="text-muted">Avenida Siempre Viva, Springfield</p>
-          </div>
-        </div>
+          <%= render partial: "room_available", locals: { room_available: room_available } %>
 
         <% end %>
-
-
 
     </div>
     <div class="col-md-5 col-sm-7 results-map hidden-xs">
