@@ -1,0 +1,8 @@
+Hi, <%= @booking.user.name %>
+================================================================
+Your booking for <%= @booking.room.name %> has been accepted
+You can now check-in at <%= @booking.hotel.name %> on
+<%= @booking.arrival.to_formated_s(:short) %>
+
+
+Thanks for booking with us and have a nice stay!

@@ -12,6 +12,7 @@ class Admin::BookingsController < ApplicationController
 
   def update
     @booking.update(booking_params)
+    NotificationMailer.confirmed_booking_email.deliver if @booking.confirmed?
   end
 
   private
