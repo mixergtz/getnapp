@@ -17,7 +17,7 @@
 
       <div class="col-md-2 col-md-offset-1 text-center">
         <br>
-        <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9InllcyI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgdmlld0JveD0iMCAwIDE0MCAxNDAiIHByZXNlcnZlQXNwZWN0UmF0aW89Im5vbmUiPjxkZWZzLz48cmVjdCB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgZmlsbD0iI0VFRUVFRSIvPjxnPjx0ZXh0IHg9IjQ0LjA0Njg3NSIgeT0iNzAiIHN0eWxlPSJmaWxsOiNBQUFBQUE7Zm9udC13ZWlnaHQ6Ym9sZDtmb250LWZhbWlseTpBcmlhbCwgSGVsdmV0aWNhLCBPcGVuIFNhbnMsIHNhbnMtc2VyaWYsIG1vbm9zcGFjZTtmb250LXNpemU6MTBwdDtkb21pbmFudC1iYXNlbGluZTpjZW50cmFsIj4xNDB4MTQwPC90ZXh0PjwvZz48L3N2Zz4=" alt="..." class="img-rounded">
+        <%= image_tag @room_availability.hotel.image.url, { class: "img-rounded", width: "100%" } %>
       </div>
 
       <div class="col-md-5">
@@ -28,7 +28,7 @@
             <% end %>
           </span>
         </h3>
-        <p class="text-muted"><%= @room_availability.hotel.address %> </p>
+        <p class="text-muted"><%= "#{@room_availability.hotel.name} - #{@room_availability.hotel.address}" %> </p>
         <div class="row">
           <div class="col-md-4 text-center">
             <i class="icon-clock"></i>
@@ -48,7 +48,11 @@
           <div class="price">
             <h4><%= number_to_currency(@room_availability.price) %></h4>
           </div>
-          <form action="">
+          <h5 class="text-center">Available on:</h5>
+          <h4><%= @room_availability.start.strftime("%F") %></h4>
+          <h5 class="text-center">at:</h5>
+          <h4><%= @room_availability.start.strftime("%I:%M %p") %></h4>
+          <!-- <form action="">
             <div class="form-group">
               <label for="arrival_date">Date</label>
               <input type="date" class="form-control" id="arrival_date">
@@ -57,7 +61,7 @@
               <label for="arrival_time">Time</label>
               <input type="time" class="form-control" id="arrival_time">
             </div>
-          </form>
+          </form> -->
           <button type="button" class="btn btn-info btn-lg">Book it</button>
       </div>
     </div>

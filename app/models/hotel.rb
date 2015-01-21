@@ -3,7 +3,7 @@ class Hotel < ActiveRecord::Base
   has_many :room_availabilities, through: :rooms
   reverse_geocoded_by :latitude, :longitude
   mount_uploader :image, ImageUploader
-  validate image_size
+  validate :image_size
 
   private
 
