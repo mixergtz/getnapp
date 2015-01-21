@@ -3,9 +3,9 @@
 
   <% @rooms.each do |room| %>
 
-    <div class="col-md-3">
+    <div class="col-md-3 admin-room-preview">
       <div class="image">
-        <img src="https://a1.muscache.com/ic/pictures/26852575/6efc2dc0_original.jpg?interpolation=lanczos-none&size=x_medium&output-format=jpg&output-quality=70" width="100%" alt="">
+        <%= image_tag room.image.url, width: "100%" if room.image? %>
       </div>
       <div class="description">
         <h4><%= link_to room.name, admin_hotel_room_path(@hotel, room) %>

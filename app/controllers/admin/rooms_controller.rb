@@ -27,8 +27,7 @@ class Admin::RoomsController < ApplicationController
   end
 
   def update
-    @room = Room.update(room_params)
-    if @room.save
+    if @room.update_attributes(room_params)
       redirect_to admin_hotel_rooms_path, notice: "Room edited"
     else
       render :edit
@@ -52,7 +51,7 @@ class Admin::RoomsController < ApplicationController
 
 
     def room_params
-      params.require(:room).permit(:name, :address, :description, :lat, :long)
+      params.require(:room).permit(:name, :image, :address, :description, :lat, :long)
     end
 
 end
