@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150120153739) do
+ActiveRecord::Schema.define(version: 20150121161801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "hstore"
 
   create_table "hotels", force: :cascade do |t|
     t.string   "name"
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 20150120153739) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "hotel_id"
+    t.hstore   "extra_info"
   end
 
   add_index "rooms", ["hotel_id"], name: "index_rooms_on_hotel_id", using: :btree

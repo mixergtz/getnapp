@@ -21,6 +21,7 @@ gem 'friendly_id', '5.1.0.beta.1'
 gem "letter_opener", :group => :development
 
 gem 'geocoder'
+gem "hstore_accessor"
 
 group :development, :test do
   gem 'byebug'
