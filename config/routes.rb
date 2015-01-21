@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   root 'static#index'
 
   get "company" => "static#company"
@@ -7,15 +8,15 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "hotels#index"
+    resources :bookings, only: [:index, :show, :update]
     resources :hotels do
       resources :rooms do
         resources :room_availabilities,  path: :avalability
       end
     end
-
-
-
   end
+
+  resources :bookings, only: [:index, :show, :create, :update]
 
   get "rooms" => "rooms#index", path: :s, as: :s
   get "rooms/:room_id/:availability_id" => "rooms#show", as: :room

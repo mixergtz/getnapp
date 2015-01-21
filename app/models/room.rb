@@ -1,5 +1,6 @@
 class Room < ActiveRecord::Base
   has_many :room_availabilities
+  has_many :bookings
   belongs_to :hotel
   mount_uploader :image, ImageUploader
   validate :image_size
