@@ -12,6 +12,8 @@ class RoomsController < ApplicationController
   end
 
   def show
+    #@room = Room.find(params[:room_id])
+    @room_availability = RoomAvailability.includes(:room).find(params[:availability_id])
   end
 
 end

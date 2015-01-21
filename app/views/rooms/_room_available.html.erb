@@ -1,11 +1,13 @@
 
 <div class="col-md-6 listing-preview">
   <div class="image">
-    <img src="https://a1.muscache.com/ic/pictures/26852575/6efc2dc0_original.jpg?interpolation=lanczos-none&size=x_medium&output-format=jpg&output-quality=70" width="100%" alt="">
+    <%= link_to room_path(room_available.room, room_available.id) do %>
+      <img src="https://a1.muscache.com/ic/pictures/26852575/6efc2dc0_original.jpg?interpolation=lanczos-none&size=x_medium&output-format=jpg&output-quality=70" width="100%" alt="">
+    <% end %>
     <h4 class="price">$<%= room_available.price %></h4>
   </div>
   <div class="description">
-    <h5><%= room_available.room.name %>
+    <h5><%= link_to room_available.room.name, room_path(room_available.room, room_available.id) %>
       <span class="stars pull-right">
         <% room_available.room.rating.times do %>
           <i class="fa fa-star"></i>
@@ -15,4 +17,3 @@
     <p class="text-muted"><%=  room_available.hotel.address  %></p>
   </div>
 </div>
-<%= link_to "Room", room_path(room_available.room) %>

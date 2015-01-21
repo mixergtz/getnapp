@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   get "rooms" => "rooms#index", path: :s, as: :s
-  get "rooms/:id" => "rooms#show", as: :room
+  get "rooms/:room_id/:availability_id" => "rooms#show", as: :room
 
 
   # The priority is based upon order of creation: first created -> highest priority.

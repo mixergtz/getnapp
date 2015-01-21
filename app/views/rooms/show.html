@@ -21,15 +21,14 @@
       </div>
 
       <div class="col-md-5">
-        <h3>Super hotel blabla
+        <h3><%= @room_availability.room.name %>
           <span class="stars">
+            <% @room_availability.room.rating.times do %>
               <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
+            <% end %>
           </span>
         </h3>
-        <p class="text-muted">Calle falsa #123, New York</p>
+        <p class="text-muted"><%= @room_availability.hotel.address %> </p>
         <div class="row">
           <div class="col-md-4 text-center">
             <i class="icon-clock"></i>
@@ -47,7 +46,7 @@
       </div>
       <div class="col-md-3 book-form text-center">
           <div class="price">
-            <h4>$10.000 hora</h4>
+            <h4><%= number_to_currency(@room_availability.price) %></h4>
           </div>
           <form action="">
             <div class="form-group">
@@ -68,9 +67,9 @@
     <div class="container">
       <div class="row">
         <div class="col-md-7 col-md-offset-1">
-          <h4>About the hotel</h4>
+          <h4>About the room</h4>
             <% 5.times do %>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nemo qui dignissimos eveniet commodi non delectus cupiditate officiis architecto. Magnam aliquid cumque consequuntur iure corporis mollitia rerum nihil, unde omnis! Fuga.</p>
+              <%= @room_availability.room.description %>
             <% end %>
         </div>
       </div>
