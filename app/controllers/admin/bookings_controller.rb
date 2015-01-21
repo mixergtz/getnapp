@@ -1,11 +1,13 @@
 class Admin::BookingsController < ApplicationController
+  layout "admin"
   before_action :set_booking, only: [:show, :update]
 
   def index
-    @bookings = Room.all.includes(:bookings)
+    @bookings = Hotel.all.includes(:bookings, :rooms)
   end
 
   def show
+
   end
 
   def update

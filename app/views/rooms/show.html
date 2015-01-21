@@ -62,7 +62,12 @@
               <input type="time" class="form-control" id="arrival_time">
             </div>
           </form> -->
-          <button type="button" class="btn btn-info btn-lg">Book it</button>
+          <!-- <button type="button" class="btn btn-info btn-lg">Book it</button> -->
+          <% if @room_availability.available? %>
+            <%= link_to "Book it", book_room_path(@room_availability), class: "btn btn-info btn-lg", method: :post %>
+          <% else %>
+            <%= link_to "Not available", "#", class: "btn btn-danger btn-lg disabled" %>
+          <% end %>
       </div>
     </div>
   </div>

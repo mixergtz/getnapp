@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   namespace :admin do
     root "hotels#index"
+
     resources :bookings, only: [:index, :show, :update]
+
     resources :hotels do
       resources :rooms do
         resources :room_availabilities,  path: :avalability
@@ -20,6 +22,10 @@ Rails.application.routes.draw do
 
   get "rooms" => "rooms#index", path: :s, as: :s
   get "rooms/:room_id/:availability_id" => "rooms#show", as: :room
+
+  get "booking/:id" => "bookings#show", as: :show_booking
+  post "booking/:id" => "bookings#update", as: :cancel_booking
+  post "book/:availability_id" => "bookings#create", as: :book_room
 
 
   # The priority is based upon order of creation: first created -> highest priority.

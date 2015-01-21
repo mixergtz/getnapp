@@ -1,29 +1,12 @@
-<p id="notice"><%= notice %></p>
+<div class="col-md-8 col-md-offset-2">
+  <h1>Your bookings:</h1>
 
-<p>
-  <strong>Room:</strong>
-  <%= @booking.room %>
-</p>
+  <%= @booking %>
 
-<p>
-  <strong>Arrival:</strong>
-  <%= @booking.arrival %>
-</p>
+  <div>
+    <%= link_to "Cancel Booking", cancel_booking_path(@booking), class: "btn btn-danger btn-lg", method: :post %>
+  </div>
+</div>
 
-<p>
-  <strong>Price:</strong>
-  <%= @booking.price %>
-</p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @booking.status %>
-</p>
 
-<p>
-  <strong>Hours:</strong>
-  <%= @booking.hours %>
-</p>
-
-<%= link_to 'Edit', edit_booking_path(@booking) %> |
-<%= link_to 'Back', bookings_path %>

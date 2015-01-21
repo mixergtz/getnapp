@@ -1,0 +1,36 @@
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="headingOne">
+      <h4 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion"
+            href="#<%= "room-av-#{booking.id}" %>"
+            aria-expanded="false"
+            aria-controls="<%= "room-av-#{booking.id}" %>"
+            class="collapsed">
+              <%= "#{booking.room.name} - #{booking.arrival.to_formatted_s(:short)}" %>
+              <span class="pull-right">
+                <%= "#{booking.hours} hours" %> |
+                <%= booking.status %> |
+                <%= "$#{booking.price}" %>
+              </span>
+        </a>
+      </h4>
+    </div>
+    <div id="<%= "room-av-#{booking.id}" %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+      <div class="panel-body">
+
+        <%= form_for [:admin, booking], html: {class: "form-inline"} do |f| %>
+
+          <div class="form-group">
+            <%= f.label :status %><br />
+            <%= f.select :status, Booking.statuses.keys.to_a, {}, class: "form-control" %>
+          </div>
+
+          <div class="text-center"><br />
+            <%= f.submit "Update", class: "btn btn-primary form-control" %>
+          </div>
+
+        <% end %>
+
+      </div>
+    </div>
+  </div
