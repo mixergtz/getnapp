@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get "more_info" => "static#more_info"
 
   namespace :admin do
+    root "hotels#index"
     resources :hotels do
       resources :rooms do
         resources :room_availabilities,  path: :avalability

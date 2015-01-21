@@ -1,25 +1,36 @@
 <div class="container">
   <h3>Rooms for <%=  @hotel.name %></h3>
 
-  <table class="table table-hover">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Options</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @rooms.each do |room| %>
-          <tr>
-            <th><%= room.name %></th>
-            <th><%= room.hotel.address %></th>
-            <th><%= link_to "See Room", admin_hotel_room_path(@hotel, room) %></th>
-          </tr>
-        <% end %>
-    </tbody>
-  </table>
+  <% @rooms.each do |room| %>
 
-  <%= link_to "New room", new_admin_hotel_room_path %>
+    <div class="col-md-3">
+      <div class="image">
+        <img src="https://a1.muscache.com/ic/pictures/26852575/6efc2dc0_original.jpg?interpolation=lanczos-none&size=x_medium&output-format=jpg&output-quality=70" width="100%" alt="">
+      </div>
+      <div class="description">
+        <h4><%= link_to room.name, admin_hotel_room_path(@hotel, room) %>
+          <span class="stars pull-right">
+            <% room.rating.times do %>
+              <i class="fa fa-star"></i>
+            <% end %>
+          </span>
+        </h4>
+        <p>Availables: <%=  room.room_availabilities.availables(DateTime.now).count %></p>
+        <p> <%= link_to "Edit Room", edit_admin_hotel_room_path(@hotel, room) %> |
+            <%= link_to 'Destroy', admin_hotel_room_path(@hotel, room), method: :delete, data: { confirm: 'Are you sure?' } %>
+        </p>
+      </div>
+    </div>
+
+  <% end %>
+
+  <div class="col-md-3 admin-new-room">
+
+    <div class="description">
+      <h4><%= link_to "New room", new_admin_hotel_room_path %></h4>
+    </div>
+  </div>
+
+
 </div>
 
