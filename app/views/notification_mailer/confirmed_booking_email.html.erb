@@ -1,7 +1,14 @@
-<h1>Hi, <%= @booking.user.name %></h1>
-<p>
-  Your booking for <%= @booking.room.name %> has been accepted<br>
-</p>
-<p>You can now check-in at <%= @booking.hotel.name %> on <%= @booking.arrival.to_formatted_s(:short) %> </p>
+<div class="mail">
+  <h1 class="header">GetNapp</h1>
+  <div class="content">
+  <h2>Hi, <%= @booking.user.name %></h2>
+  <p>
+    Your booking for <strong><i><%= @booking.room.name %></i></strong> has been accepted<br>
+  </p>
+  <p>You can now check-in at <strong><i><%= @booking.hotel.name %></i></strong> on <strong><i><%= @booking.arrival.to_formatted_s(:short) %></i></strong> </p>
 
-<p>Thanks for booking with us and have a nice stay!</p>
+  <p>Thanks for booking with us and have a nice stay!</p>
+
+  <p class="signature"><i>GetNapp Team</i></p>
+  </div>
+</div>
