@@ -12,5 +12,4 @@ $(document).ready(function(){
       map: map,
       title: 'Hello World!'
   });
-
 });
