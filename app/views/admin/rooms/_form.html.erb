@@ -25,5 +25,25 @@
     <%= f.file_field :image, class: "form-control" %>
   </div>
 
+  <h4>This room includes</h4>
+  <div class="form-group">
+
+    <%= f.label :internet %>
+    <%= f.check_box :internet, {}, true, false  %>
+
+    <%= f.label :tv %>
+    <%= f.check_box :tv, {}, true, false  %>
+
+    <%= f.label :closet %>
+    <%= f.check_box :closet, {}, true, false  %>
+
+    <%= f.label :sofa %>
+    <%= f.check_box :sofa, {}, true, false  %>
+
+    <%= f.label :breakfast %>
+    <%= f.check_box :breakfast, {}, true, false  %>
+
+  </div>
+
   <p class="text-center"><%= f.submit "Submit", class: "btn btn-primary" %>  <%= link_to 'Back to rooms', admin_hotel_rooms_path, class: "btn btn-default" %></p>
 <% end %>

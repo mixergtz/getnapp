@@ -50,7 +50,7 @@ class Admin::RoomsController < AdminController
 
 
     def room_params
-      params.require(:room).permit(:name, :image, :address, :description, :lat, :long)
+      params.require(:room).permit(:name, :image, :description, :internet, :tv, :closet, :sofa, :air, :breakfast)
     end
 
 end
