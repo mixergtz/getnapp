@@ -1,5 +1,4 @@
-class Admin::RoomsController < ApplicationController
-  layout "admin"
+class Admin::RoomsController < AdminController
   before_action :set_hotel
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 

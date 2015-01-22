@@ -1,5 +1,5 @@
-class Admin::HotelsController < ApplicationController
-  layout "admin"
+class Admin::HotelsController < AdminController
+
   before_action :set_hotel, only: [:show, :edit, :update, :destroy]
 
   def index

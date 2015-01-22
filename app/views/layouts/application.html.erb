@@ -10,7 +10,12 @@
 </head>
 <body>
 <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
-<%= render "shared/navbar" %>
+
+<% if user_signed_in? %>
+  <%= render "shared/navbar_user" %>
+<% else %>
+  <%= render "shared/navbar" %>
+<% end %>
 <div class="main-wrapper">
   <%= yield %>
 </div>

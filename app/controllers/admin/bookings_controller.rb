@@ -1,5 +1,5 @@
-class Admin::BookingsController < ApplicationController
-  layout "admin"
+class Admin::BookingsController < AdminController
+
   before_action :set_booking, only: [:show, :update]
 
   def index

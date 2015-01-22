@@ -1,2 +1,0 @@
-class RoomAvailabilitiesController < ApplicationController
-end

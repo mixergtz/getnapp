@@ -7,7 +7,7 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to ("Get<strong>Napp</strong> - Hotel admin").html_safe, root_path, class: "navbar-brand"  %>
+        <%= link_to ("Get<strong>Napp</strong>").html_safe, root_path, class: "navbar-brand"  %>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,13 +22,13 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">GetNapp <span class="caret"></span></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><%= "#{current_user.name} #{current_user.last_name}" %> <span class="caret"></span></a>
             <ul class="dropdown-menu" role="menu">
-              <li><a href="/company#mission">Mission</a></li>
-              <li><a href="/company#values">Values</a></li>
+              <li><%= link_to "My account", edit_user_registration_path %></li>
+              <li><%= link_to "My bookings", "#" %></li>
+              <li class="divider"></li>
+              <li><%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
             </ul>
           </li>
         </ul>
