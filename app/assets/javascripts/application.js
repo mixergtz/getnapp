@@ -15,3 +15,14 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+function setPoints(map, points) {
+  for (var i=0; i < points.length; i++) {
+    var point = points[i];
+    var marker = new google.maps.Marker({
+        position: new google.maps.LatLng(point.latitude, point.longitude),
+        map: map,
+        labelContent: point.name
+    });
+  }
+}

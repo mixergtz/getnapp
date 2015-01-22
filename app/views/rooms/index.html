@@ -1,49 +1,55 @@
 <div class="container results-main container-full">
   <div class="row">
     <div class="col-md-7 col-sm-7 results-elements ">
+    <!--
         <div class="row filters" >
-          <div class="col-md-12">
-            <br>
-            <div class="row">
-              <div class="col-md-3 text-right">
-                <h5>Arrival Time</h5>
-              </div>
-              <div class=" col-md-3">
-                <%= datetime_select :arrival, params[:arrival], {ampm: true, default: @search_date}, { class: "form-control" } %>
-              </div>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-3 text-right">
-                <h5>Hours</h5>
-              </div>
-              <div class="col-md-3">
-                <%= check_box_tag :hours, params[:q], class: "form-control" %>
-                <%= label_tag :hours, "3 hours", class: 'category_select' %>
-              </div>
-              <div class="col-md-3">
-                <%= check_box_tag :hours, params[:q], class: "form-control" %>
-                <%= label_tag :hours, "6 hours", class: 'category_select' %>
-              </div>
-              <div class="col-md-3">
-                <%= check_box_tag :hours, params[:q], class: "form-control" %>
-                <%= label_tag :hours, "12 hours", class: 'category_select' %>
+
+          <%= form_tag s_path, class: "navbar-form", method: :get do %>
+            <div class="col-md-12">
+              <br>
+              <div class="row">
+                <div class="col-md-3 text-right">
+                  <h5>Arrival Time</h5>
+                </div>
+                <div class=" col-md-3">
+                  <%= datetime_select :arrival, params[:arrival], {ampm: true, default: @search_date}, { class: "form-control" } %>
+                </div>
               </div>
               <hr>
-            </div>
-            <hr>
-            <div class="row">
-              <div class="col-md-3 text-right">
-                <h5>Price Range</h5>
+              <div class="row">
+                <div class="col-md-3 text-right">
+                  <h5>Hours</h5>
+                </div>
+                <div class="col-md-3">
+                  <%= check_box_tag :hours, params[:hours], class: "form-control" %>
+                  <%= label_tag :hours, "3 hours", class: 'category_select' %>
+                </div>
+                <div class="col-md-3">
+                  <%= check_box_tag :hours, params[:hours], class: "form-control" %>
+                  <%= label_tag :hours, "6 hours", class: 'category_select' %>
+                </div>
+                <div class="col-md-3">
+                  <%= check_box_tag :hours, params[:hours], class: "form-control" %>
+                  <%= label_tag :hours, "12 hours", class: 'category_select' %>
+                </div>
+                <hr>
               </div>
-              <div class="col-md-9">
-                Slider goes here :)
+              <hr>
+              <div class="row">
+                <div class="col-md-3 text-right">
+                  <h5>Price Range</h5>
+                </div>
+                <div class="col-md-9">
+                    <div id="price-slider"></div>
+                    <%= number_field_tag :price, params[:price], class: "form-control disabled", id: "price-input" %>
+                </div>
               </div>
+              <br>
             </div>
-            <br>
-          </div>
-        </div>
 
+          <% end %>
+        </div>
+ -->
 
         <br>
         <br>
@@ -52,6 +58,7 @@
 
           <%= render partial: "room_available", locals: { room_available: room_available } %>
 
+          <% @available_hotels << room_available.hotel %>
         <% end %>
 
     </div>
@@ -61,3 +68,20 @@
   </div>
 </div>
 
+
+
+<script>
+  //$(document).on("page:change", function(){
+  $(document).ready(function(){
+  var myLatlng = new google.maps.LatLng(6.2067854,-75.5703812);
+  var mapOptions = {
+    zoom: 14,
+    scrollwheel: false,
+    center: myLatlng
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var points = <%= raw @available_hotels.uniq.to_json.html_safe %>;
+  setPoints(map, points);
+});
+</script>

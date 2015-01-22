@@ -147,3 +147,17 @@
     <%= render "shared/footer" %>
   </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+  var myLatlng = new google.maps.LatLng(6.2067854,-75.5703812);
+  var mapOptions = {
+    zoom: 17,
+    scrollwheel: false,
+    center: myLatlng
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  var points = [<%= raw @room_availability.hotel.to_json.html_safe %>];
+  setPoints(map, points);
+});
+</script>

@@ -3,7 +3,7 @@ class Admin::RoomsController < AdminController
   before_action :set_room, only: [:show, :edit, :update, :destroy]
 
   def index
-    @rooms = Room.all
+    @rooms = @hotel.rooms
   end
 
   def show
