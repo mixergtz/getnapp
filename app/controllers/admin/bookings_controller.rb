@@ -7,12 +7,13 @@ class Admin::BookingsController < AdminController
   end
 
   def show
-
+    #implement?
   end
 
   def update
     @booking.update(booking_params)
-    NotificationMailer.confirmed_booking_email.deliver if @booking.confirmed?
+    NotificationMailer.confirmed_booking_email(@booking).deliver if @booking.confirmed?
+    redirect_to admin_bookings_path, notice: "Booking confirmed, user notified"
   end
 
   private

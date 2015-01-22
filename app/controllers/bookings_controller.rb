@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:show, :update]
 
   def index
+    @bookings = current_user.bookings
   end
 
   def show
@@ -15,7 +16,8 @@ class BookingsController < ApplicationController
                                 arrival: room_availability.start,
                                 price: room_availability.price,
                                 hours: room_availability.hours,
-                                status: :pending)
+                                status: :pending,
+                                user: current_user)
       room_availability.update(available: false)
       redirect_to show_booking_path(@booking)
     else
@@ -25,6 +27,7 @@ class BookingsController < ApplicationController
 
   def update
     @booking.update(status: :pending_cancel)
+    redirect_to user_bookings_path, notice: "Cancel request for your booking has been sent"
     #render :cancel
   end
 
@@ -33,7 +36,4 @@ class BookingsController < ApplicationController
       @booking = Booking.find(params[:id])
     end
 
-    def booking_params
-      #params.require(:booking).permit(:room_id, :arrival, :price, :status, :hours)
-    end
 end

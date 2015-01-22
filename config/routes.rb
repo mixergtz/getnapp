@@ -27,6 +27,7 @@ Rails.application.routes.draw do
   get "booking/:id" => "bookings#show", as: :show_booking
   post "booking/:id" => "bookings#update", as: :cancel_booking
   post "book/:availability_id" => "bookings#create", as: :book_room
+  get "bookings" => "bookings#index", as: :user_bookings
 
 
   # The priority is based upon order of creation: first created -> highest priority.

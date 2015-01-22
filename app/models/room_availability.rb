@@ -1,7 +1,7 @@
 class RoomAvailability < ActiveRecord::Base
   belongs_to :room
   has_one :hotel, through: :room
-  #enum hours: [:three, :six, :twelve]
+  validates :price, numericality: { greater_than: 1000 }
 
   HOURS = [3,6,12]
 

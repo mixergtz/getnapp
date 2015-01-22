@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150121225503) do
+ActiveRecord::Schema.define(version: 20150122032942) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,9 +25,11 @@ ActiveRecord::Schema.define(version: 20150121225503) do
     t.integer  "hours"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
   end
 
   add_index "bookings", ["room_id"], name: "index_bookings_on_room_id", using: :btree
+  add_index "bookings", ["user_id"], name: "index_bookings_on_user_id", using: :btree
 
   create_table "hotels", force: :cascade do |t|
     t.string   "name"
@@ -38,7 +40,10 @@ ActiveRecord::Schema.define(version: 20150121225503) do
     t.float    "longitude"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
+
+  add_index "hotels", ["user_id"], name: "index_hotels_on_user_id", using: :btree
 
   create_table "room_availabilities", force: :cascade do |t|
     t.integer  "room_id"

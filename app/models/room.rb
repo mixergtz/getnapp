@@ -4,6 +4,7 @@ class Room < ActiveRecord::Base
   belongs_to :hotel
   mount_uploader :image, ImageUploader
   validate :image_size
+  validates_presence_of :name, :description, :image
 
   private
 

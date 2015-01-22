@@ -1,7 +1,6 @@
 <div class="col-md-8 col-md-offset-2">
-  <h1>Your bookings:</h1>
 
-  <%= @booking %>
+  <%= @booking.arrival.to_formatted_s(:short) %>
 
   <div>
     <%= link_to "Cancel Booking", cancel_booking_path(@booking), class: "btn btn-danger btn-lg", method: :post %>

@@ -1,10 +1,12 @@
 class Hotel < ActiveRecord::Base
+  belongs_to :user
   has_many :rooms
   has_many :room_availabilities, through: :rooms
   has_many :bookings, through: :rooms
   reverse_geocoded_by :latitude, :longitude
   mount_uploader :image, ImageUploader
   validate :image_size
+  validates_presence_of :name, :image, :address, :description, :latitude, :longitude
 
   private
 

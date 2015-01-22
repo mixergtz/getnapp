@@ -3,7 +3,7 @@ class Admin::HotelsController < AdminController
   before_action :set_hotel, only: [:show, :edit, :update, :destroy]
 
   def index
-    @hotels = Hotel.all
+    @hotels = current_user.hotels
   end
 
   def show
@@ -17,7 +17,7 @@ class Admin::HotelsController < AdminController
   end
 
   def create
-    @hotel = Hotel.new(hotel_params)
+    @hotel = current_user.hotels.new(hotel_params)
     if @hotel.save
       redirect_to admin_hotels_path, notice: "Hotel created"
     else

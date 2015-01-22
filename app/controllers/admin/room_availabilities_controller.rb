@@ -8,7 +8,8 @@ class Admin::RoomAvailabilitiesController < AdminController
   end
 
   def create
-    if @room.room_availabilities.create(room_availability_params)
+    @room_availability = @room.room_availabilities.build(room_availability_params)
+    if @room_availability.save
       redirect_to admin_hotel_room_path(@hotel, @room), notice: "Availability for this room created"
     else
       render :new

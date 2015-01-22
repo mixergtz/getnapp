@@ -1,5 +1,17 @@
 <%= form_for [:admin, @hotel, @room, @room_availability], html: { class: "form-horizontal" } do |f| %>
 
+  <% if @room_availability.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@room_availability.errors.count, "error") %> prohibited this hotel from being saved:</h2>
+
+      <ul>
+      <% @room_availability.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <%= f.label :start, "Start Date/Time Availability" %><br />
     <%= f.datetime_select :start, { ampm: true }, { class: "form-control" } %>
