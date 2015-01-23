@@ -54,11 +54,19 @@
         <br>
         <br>
 
-        <%  @available_rooms_near.try(:each) do |room_available|  %>
+        <% if @available_rooms_near.any? %>
 
-          <%= render partial: "room_available", locals: { room_available: room_available } %>
+          <%  @available_rooms_near.try(:each) do |room_available|  %>
 
-          <% @available_hotels << room_available.hotel %>
+            <%= render partial: "room_available", locals: { room_available: room_available } %>
+
+            <% @available_hotels << room_available.hotel %>
+          <% end %>
+
+        <% else %>
+
+          <h3>Sorry we have no results for you :(</h3>
+
         <% end %>
 
     </div>
