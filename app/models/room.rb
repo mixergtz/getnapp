@@ -9,7 +9,6 @@ class Room < ActiveRecord::Base
   hstore_accessor :extra_info,
     internet: :boolean,
     tv: :boolean,
-    closet: :boolean,
     sofa: :boolean,
     air: :boolean,
     breakfast: :boolean

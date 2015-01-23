@@ -56,14 +56,14 @@
 }
 
 ////////////////////////////////////////////
-//            SHOW HOTEL
+//            SHOW ROOM
 ////////////////////////////////////////////
-.hotel-main-img .intro-header{
+.room-main-img .intro-header{
   height: 60vh;
   margin-bottom: 0px;
 }
 
-.hotel-summary{
+.room-summary{
   background-color: $room-header-info-color;
   border-bottom: $borders-color 1px solid;
   h3{
@@ -92,6 +92,10 @@
     margin-right: -10px;
     color: white;
   }
+}
+
+.room-icons{
+  font-size: 3em;
 }
 
 ////////////////////////////////////////////
