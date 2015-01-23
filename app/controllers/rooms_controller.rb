@@ -6,9 +6,14 @@ class RoomsController < ApplicationController
       @search_date = DateTime.civil(*params[:arrival].sort.map(&:last).map(&:to_i))
       @available_rooms_near = RoomAvailability.availables(@search_date).rooms_near_to(params[:location], 20)
       @available_hotels = []
-    else
+    elsif params[:location].present?
       @search_date = DateTime.now
-      #if its not set, set current location and current date by default
+      @available_rooms_near = RoomAvailability.availables(@search_date).rooms_near_to(params[:location], 20)
+      @available_hotels = []
+    elsif params[:arrival].present?
+      @search_date = DateTime.civil(*params[:arrival].sort.map(&:last).map(&:to_i))
+      @available_rooms_near = RoomAvailability.availables(@search_date).rooms_near_to(params[:location], 20)
+      @available_hotels = []
     end
 
   end
