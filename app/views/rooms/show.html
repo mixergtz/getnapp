@@ -77,14 +77,15 @@
     <div class="container">
       <div class="row">
         <div class="col-md-7 col-md-offset-1">
-          <h4>About the room</h4>
+          <h3>About the room</h3>
           <p> <%= @room_availability.room.description %> </p>
         </div>
       </div>
 
       <div class="row room-img-1">
         <div class="col-md-7 col-md-offset-1">
-          <img src="https://a2.muscache.com/ic/pictures/27390468/79829cf0_original.jpg?interpolation=lanczos-none&size=x_large&output-format=progressive-jpeg&output-quality=70" width="100%" alt="">
+          <!-- <img src="https://a2.muscache.com/ic/pictures/27390468/79829cf0_original.jpg?interpolation=lanczos-none&size=x_large&output-format=progressive-jpeg&output-quality=70" width="100%" alt=""> -->
+          <%= image_tag @room_availability.room.try(:img_extra1).try(:url), { width: "100%" } %>
         </div>
         <hr>
       </div>
@@ -92,7 +93,7 @@
 
       <div class="row whats-included">
         <div class="col-md-7 col-md-offset-1">
-          <h4>What's included?</h4>
+          <h3>What's included?</h3>
           <p>This room has the following elements:</p>
 
           <% @room_availability.room.extra_info.try(:each) do |k,v| %>
@@ -106,28 +107,22 @@
               <% end %>
           <% end %>
 
-
-
-<!--           <hr>
-          <div class="row">
-            <div class="col-md-4"><h5>Other</h5></div>
-            <div class="col-md-4">
-              <p>fasdfadfasdf</p>
-              <p>fasdfadfasdf</p>
-            </div>
-            <div class="col-md-4">
-              <p>fsafasdfasdfa</p>
-              <p>fsafasdfasdfa</p>
-            </div>
-          </div> -->
-
           <hr>
         </div>
       </div>
 
+      <div class="row room-img-1">
+        <div class="col-md-7 col-md-offset-1">
+          <%= image_tag @room_availability.room.try(:img_extra2).try(:url), { width: "100%" } %>
+        </div>
+        <hr>
+      </div>
+
+      <br>
+
       <div class="row">
         <div class="col-md-7 col-md-offset-1">
-          <h4>About the hotel</h4>
+          <h3>About the hotel</h3>
           <p> <%= @room_availability.hotel.description %> </p>
         </div>
       </div>

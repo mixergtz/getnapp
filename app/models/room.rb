@@ -3,6 +3,8 @@ class Room < ActiveRecord::Base
   has_many :bookings, dependent: :destroy
   belongs_to :hotel
   mount_uploader :image, ImageUploader
+  mount_uploader :img_extra1, ImageUploader
+  mount_uploader :img_extra2, ImageUploader
   validate :image_size
   validates_presence_of :name, :description, :image
 
