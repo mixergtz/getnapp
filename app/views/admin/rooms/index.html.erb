@@ -8,16 +8,16 @@
         <%= image_tag room.image.url, width: "100%" if room.image? %>
       </div>
       <div class="description">
-        <h4><%= link_to room.name, admin_hotel_room_path(@hotel, room) %>
+        <h4><%= link_to room.name, admin_hotel_room_path(@hotel, room), { "data-toggle" => "tooltip", "data-placement" => "bottom", "title" => "Click to manage availabilities" } %>
           <span class="stars pull-right">
             <% room.rating.times do %>
               <i class="fa fa-star"></i>
             <% end %>
           </span>
         </h4>
-        <p>Availables: <%=  room.room_availabilities.availables(DateTime.now).count %></p>
-        <p> <%= link_to "Edit Room", edit_admin_hotel_room_path(@hotel, room) %> |
-            <%= link_to 'Destroy', admin_hotel_room_path(@hotel, room), method: :delete, data: { confirm: 'Are you sure?' } %>
+        <p class="text-right text-muted">Availables: <%=  room.room_availabilities.availables(DateTime.now).count %></p>
+        <p class="text-center"> <%= link_to "Edit Room", edit_admin_hotel_room_path(@hotel, room), class: "btn btn-primary" %>
+            <%= link_to 'Destroy', admin_hotel_room_path(@hotel, room), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
         </p>
       </div>
     </div>

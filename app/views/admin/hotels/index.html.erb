@@ -13,10 +13,10 @@
       <div class="col-md-7 hotel-preview-data">
         <h3><%= link_to hotel.name, admin_hotel_path(hotel) %></h3>
         <p class="text-muted"><%= hotel.address %></p>
-        <i>Longitude: <%= hotel.longitude %> | Latitude: <%= hotel.latitude %></i>
-        <p><%= link_to 'See Rooms', admin_hotel_rooms_path(hotel) %> |
-          <%= link_to 'Edit', edit_admin_hotel_path(hotel) %> |
-          <%= link_to 'Destroy', admin_hotel_path(hotel), method: :delete, data: { confirm: 'Are you sure?' } %></p>
+
+        <p class="text-center"><%= link_to 'See Rooms', admin_hotel_rooms_path(hotel), class: "btn btn-success" %>
+          <%= link_to 'Edit', edit_admin_hotel_path(hotel), class: "btn btn-primary" %>
+          <%= link_to 'Destroy', admin_hotel_path(hotel), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %></p>
       </div>
     </div>
   <% end %>

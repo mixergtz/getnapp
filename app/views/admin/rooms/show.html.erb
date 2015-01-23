@@ -11,6 +11,7 @@
         <%= @room.description %>
       </div>
       <div class="panel-body">
+        <h4>Current availabilities for this room:</h4>
         <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
           <% @room.room_availabilities.each do |availability| %>
             <%= render partial: "availability", locals: { availability: availability} %>

@@ -26,28 +26,35 @@
   </div>
 
   <h4>This room includes</h4>
-  <div class="form-group">
+  <div class="row form-group">
 
-  <%= f.fields_for :extra_info, OpenStruct.new(f.object.extra_info) do |e| %>
+    <%= f.fields_for :extra_info, OpenStruct.new(f.object.extra_info) do |e| %>
 
-    <%= e.label :internet %>
-    <%= e.check_box :internet  %>
+      <div class="col-md-6 text-center">
 
-    <%= e.label :tv %>
-    <%= e.check_box :tv %>
+        <%= e.label :internet %>
+        <%= e.check_box :internet  %> <br>
 
-    <%= e.label :sofa %>
-    <%= e.check_box :sofa %>
 
-    <%= e.label :breakfast %>
-    <%= e.check_box :breakfast %>
+        <%= e.label :tv %>
+        <%= e.check_box :tv %>  <br>
 
-    <%= e.label :air %>
-    <%= e.check_box :air %>
+        <%= e.label :sofa %>
+        <%= e.check_box :sofa %>  <br>
+      </div>
 
-  <% end %>
+      <div class="col-md-6 text-center">
+        <%= e.label :breakfast %>
+        <%= e.check_box :breakfast %>  <br>
+
+        <%= e.label :air %>
+        <%= e.check_box :air %>  <br>
+      </div>
+
+    <% end %>
 
   </div>
-
-  <p class="text-center"><%= f.submit "Submit", class: "btn btn-primary" %>  <%= link_to 'Back to rooms', admin_hotel_rooms_path, class: "btn btn-default" %></p>
+  <div class="row">
+    <p class="text-center"><%= f.submit "Submit", class: "btn btn-primary" %>  <%= link_to 'Back to rooms', admin_hotel_rooms_path, class: "btn btn-default" %></p>
+  </div>
 <% end %>
