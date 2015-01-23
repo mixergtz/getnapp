@@ -57,7 +57,7 @@
       <div class="col-md-8 col-md-offset-2 text-center">
         <%= form_tag s_path, class: "navbar-form", method: :get do %>
           <div class="form-group">
-            <%= text_field_tag :location, params[:location], class: "form-control", id: "location_input", placeholder: "Location" %>
+            <%= text_field_tag :location, params[:location], class: "form-control", id: "location-input", placeholder: "Location" %>
           </div>
           <div class="form-group">
             <%= datetime_select :arrival, params[:arrival], {ampm: true}, { class: "form-control" } %>

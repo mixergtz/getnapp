@@ -6,11 +6,19 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
   <%= csrf_meta_tags %>
+  <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 </head>
 <body>
 
   <%= yield %>
   <%= render "shared/footer" %>
 
+<script>
+  $(document).ready(function(){
+    var input = /** @type {HTMLInputElement} */(
+         document.getElementById('location-input'));
+     var autocomplete = new google.maps.places.Autocomplete(input);
+  });
+</script>
 </body>
 </html>

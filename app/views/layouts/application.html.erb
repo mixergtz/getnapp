@@ -10,7 +10,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"></script>
 
 <% if user_signed_in? %>
   <%= render "shared/navbar_user" %>
@@ -24,6 +24,12 @@
   <%= yield %>
 </div>
 
-
+<script>
+  $(document).ready(function(){
+    var input = /** @type {HTMLInputElement} */(
+         document.getElementById('location-input'));
+     var autocomplete = new google.maps.places.Autocomplete(input);
+  });
+</script>
 </body>
 </html>
