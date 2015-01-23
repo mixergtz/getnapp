@@ -8,7 +8,7 @@
         </div>
       </div>
       <div class="panel-heading">
-        <%= @hotel.description %>
+        <%= @hotel.description.html_safe %>
       </div>
       <div class="panel-body">
         <p><strong>Address:</strong> <%= @hotel.address %></p>

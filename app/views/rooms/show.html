@@ -78,7 +78,7 @@
       <div class="row">
         <div class="col-md-7 col-md-offset-1">
           <h3>About the room</h3>
-          <p> <%= @room_availability.room.description %> </p>
+          <p> <%= @room_availability.room.description.html_safe %> </p>
         </div>
       </div>
 
@@ -123,7 +123,7 @@
       <div class="row">
         <div class="col-md-7 col-md-offset-1">
           <h3>About the hotel</h3>
-          <p> <%= @room_availability.hotel.description %> </p>
+          <p> <%= @room_availability.hotel.description.html_safe %> </p>
         </div>
       </div>
 

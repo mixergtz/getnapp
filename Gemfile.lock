@@ -43,6 +43,10 @@ GEM
       debug_inspector (>= 0.0.1)
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
+    bootsy (2.0.11)
+      carrierwave (~> 0.10.0)
+      mini_magick (~> 3.8.0)
+      remotipart (~> 1.2.1)
     builder (3.2.2)
     byebug (3.5.1)
       columnize (~> 0.8)
@@ -238,6 +242,7 @@ GEM
       ffi (>= 0.5.0)
     rdoc (4.2.0)
       json (~> 1.4)
+    remotipart (1.2.1)
     responders (2.0.2)
       railties (>= 4.2.0.alpha, < 5)
     rspec-core (2.14.8)
@@ -315,6 +320,7 @@ PLATFORMS
 
 DEPENDENCIES
   bootstrap-sass (~> 3.3.1)
+  bootsy
   byebug
   capybara (~> 2.1.0)
   capybara-webkit (~> 1.3.1)
