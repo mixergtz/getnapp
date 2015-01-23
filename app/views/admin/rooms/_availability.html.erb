@@ -30,10 +30,14 @@
 
           <div class="text-center"><br />
             <%= f.submit "Update", class: "btn btn-primary form-control" %>
+            <%= link_to "Delete", admin_hotel_room_room_availability_path(@hotel, @room, availability), method: :delete, class: "btn btn-danger" %>
           </div>
 
 
+
+
         <% end %>
+
 
 
 

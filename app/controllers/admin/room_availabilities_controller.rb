@@ -1,6 +1,6 @@
 class Admin::RoomAvailabilitiesController < AdminController
   before_action :set_room_availability, only: [:update, :destroy]
-  before_action :set_room, only: [:new, :create]
+  before_action :set_room, only: [:new, :create, :destroy]
   before_action :set_hotel
 
   def new
@@ -26,7 +26,7 @@ class Admin::RoomAvailabilitiesController < AdminController
 
   def destroy
     @room_availability.destroy
-    redirect_to admin_hotel_room(@room_availability.room), notice: 'Room Availability was successfully destroyed.'
+    redirect_to admin_hotel_room_path(@hotel, @room), notice: 'Room Availability was successfully destroyed.'
   end
 
   private
