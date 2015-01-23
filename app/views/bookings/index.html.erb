@@ -12,7 +12,7 @@
           <p><strong>Where:</strong> <%= booking.hotel.name %></p>
           <p><strong>Hotel address:</strong> <%= booking.hotel.address %></p>
           <p><strong>Price:</strong> <%= booking.price %></p>
-          <p><strong># Hours:</strong> <%= booking.hours %></p>
+          <p><strong>Booked time:</strong> <%= booking.arrival.strftime("%I:%M %p") %> - <%= booking.arrival.advance(hours: booking.hours).strftime('%I:%M %p') %></h4></p>
           <div class="text-center">
             <%= link_to "Cancel Booking", cancel_booking_path(booking), class: "btn btn-danger", method: :post %>
           </div>

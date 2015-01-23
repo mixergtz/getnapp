@@ -6,17 +6,19 @@
             aria-expanded="false"
             aria-controls="<%= "booking-#{booking.id}" %>"
             class="collapsed">
-              <%= "#{booking.room.name} - #{booking.arrival.to_formatted_s(:short)} - Booked by: #{booking.user.name} #{booking.user.last_name}" %>
+              <%= "#{booking.room.name} -
+                  #{booking.arrival.to_formatted_s(:short)} to #{booking.arrival.advance(hours: booking.hours).strftime('%I:%M %p')}" %>
               <span class="pull-right">
-                <%= "#{booking.hours} hours" %> |
-                <%= booking.status %> |
-                <%= "$#{booking.price}" %>
+                <strong>status: </strong> <%= booking.status %>
               </span>
         </a>
       </h4>
     </div>
     <div id="<%= "booking-#{booking.id}" %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
+
+        <p><strong>Booked by:</strong> <%= "#{booking.user.name} #{booking.user.last_name}" %></p>
+        <p><strong>Price:</strong> <%= number_to_currency(booking.price, precision: 0) %></p>
 
         <%= form_for [:admin, booking], html: {class: "form-inline"} do |f| %>
 

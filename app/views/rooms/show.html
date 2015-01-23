@@ -47,12 +47,12 @@
       </div>
       <div class="col-md-3 book-form text-center">
           <div class="price">
-            <h4><%= number_to_currency(@room_availability.price) %></h4>
+            <h4><%= number_to_currency(@room_availability.price, precision: 0) %></h4>
           </div>
           <h5 class="text-center">Available on:</h5>
           <h4><%= @room_availability.start.strftime("%F") %></h4>
           <h5 class="text-center">at:</h5>
-          <h4><%= @room_availability.start.strftime("%I:%M %p") %></h4>
+          <h4><%= @room_availability.start.strftime("%I:%M %p") %> - <%= @room_availability.start.advance(hours: @room_availability.hours).strftime('%I:%M %p') %></h4>
           <!-- <form action="">
             <div class="form-group">
               <label for="arrival_date">Date</label>

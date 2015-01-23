@@ -4,7 +4,11 @@
     <%= link_to room_path(room_available.room, room_available.id) do %>
       <%= image_tag room_available.room.image.url, width: "100%" if room_available.room.image? %>
     <% end %>
-    <h4 class="price">$<%= room_available.price %></h4>
+    <h4 class="price"><%= number_to_currency(room_available.price, precision: 0) %></h4>
+    <h6 class="date">
+      <%= room_available.start.strftime('%b/%e %H:%M') %> -
+      <%= room_available.start.advance(hours: room_available.hours).strftime('%H:%M') %>
+    </h6>
   </div>
   <div class="description">
     <h5><%= link_to room_available.room.name, room_path(room_available.room, room_available.id) %>
