@@ -6,10 +6,6 @@ class Admin::BookingsController < AdminController
     @bookings = Hotel.all.includes(:bookings, :rooms)
   end
 
-  def show
-    #implement?
-  end
-
   def update
     @booking.update(booking_params)
     NotificationMailer.confirmed_booking_email(@booking).deliver if @booking.confirmed?

@@ -1,6 +1,6 @@
 class Room < ActiveRecord::Base
-  has_many :room_availabilities
-  has_many :bookings
+  has_many :room_availabilities, dependent: :destroy
+  has_many :bookings, dependent: :destroy
   belongs_to :hotel
   mount_uploader :image, ImageUploader
   validate :image_size

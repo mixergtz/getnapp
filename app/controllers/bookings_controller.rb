@@ -1,12 +1,9 @@
 class BookingsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_booking, only: [:show, :update]
+  before_action :set_booking, only: [:update]
 
   def index
     @bookings = current_user.bookings
-  end
-
-  def show
   end
 
   def create
@@ -19,7 +16,7 @@ class BookingsController < ApplicationController
                                 status: :pending,
                                 user: current_user)
       room_availability.update(available: false)
-      redirect_to show_booking_path(@booking)
+      redirect_to user_bookings_path, notice: "Booking waiting for confirmation"
     else
       render :sorry
     end
@@ -28,7 +25,6 @@ class BookingsController < ApplicationController
   def update
     @booking.update(status: :pending_cancel)
     redirect_to user_bookings_path, notice: "Cancel request for your booking has been sent"
-    #render :cancel
   end
 
   private

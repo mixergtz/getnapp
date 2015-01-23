@@ -1,6 +1,6 @@
 class RoomAvailability < ActiveRecord::Base
   belongs_to :room
-  has_one :hotel, through: :room
+  has_one :hotel, through: :room, dependent: :destroy
   validates :price, numericality: { greater_than: 1000 }
   validate :date_after_now
 

@@ -1,10 +1,26 @@
-<h1>Your bookings:</h1>
+<div class="col-md-8 col-md-offset-2">
+  <h1>Your bookings:</h1>
 
     <% @bookings.each do |booking| %>
-      <%= booking.arrival.to_formatted_s(:short) %>
-      <%= booking.status %>
-      <br>
+
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <strong>On: </strong> <%= booking.arrival.to_formatted_s(:short) %>
+          <span class="pull-right">status: <strong><%= booking.status %></strong></span>
+        </div>
+        <div class="panel-body">
+          <p><strong>Where:</strong> <%= booking.hotel.name %></p>
+          <p><strong>Hotel address:</strong> <%= booking.hotel.address %></p>
+          <p><strong>Price:</strong> <%= booking.price %></p>
+          <p><strong># Hours:</strong> <%= booking.hours %></p>
+          <div class="text-center">
+            <%= link_to "Cancel Booking", cancel_booking_path(booking), class: "btn btn-danger", method: :post %>
+          </div>
+        </div>
+      </div>
+
     <% end %>
 
 <br>
 
+</div>

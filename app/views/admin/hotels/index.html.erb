@@ -9,8 +9,8 @@
   <% @hotels.each do |hotel| %>
 
     <div class="col-md-12 hotel-preview">
-      <div class="col-md-5"><%= image_tag hotel.image.url, width: "100%" if hotel.image? %></div>
-      <div class="col-md-7">
+      <div class="col-md-5 hotel-preview-img"><%= image_tag hotel.image.url, width: "100%" if hotel.image? %></div>
+      <div class="col-md-7 hotel-preview-data">
         <h3><%= link_to hotel.name, admin_hotel_path(hotel) %></h3>
         <p class="text-muted"><%= hotel.address %></p>
         <i>Longitude: <%= hotel.longitude %> | Latitude: <%= hotel.latitude %></i>
