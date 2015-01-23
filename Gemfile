@@ -22,6 +22,7 @@ gem "letter_opener", :group => :development
 
 gem 'geocoder'
 gem "hstore_accessor"
+gem 'pusher'
 
 group :development, :test do
   gem 'byebug'

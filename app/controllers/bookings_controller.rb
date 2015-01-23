@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
                                 status: :pending,
                                 user: current_user)
       room_availability.update(available: false)
+      Pusher["admin-#{@booking.hotel.user.id}"].trigger('new_booking', { message: 'hello world' })
       redirect_to user_bookings_path, notice: "Booking waiting for confirmation"
     else
       render :sorry
