@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "GetNapp Bookings"
+  default from: "bookings@getnapp.co"
   layout 'mailer'
 end
