@@ -20,7 +20,7 @@ class Admin::RoomAvailabilitiesController < AdminController
     if @room_availability.update(room_availability_params)
       redirect_to admin_hotel_room_path(@hotel, @room_availability.room), notice: "Room Availability edited"
     else
-      redirect_to admin_hotel_room_path(@hotel, @room_availability.room), notice: "Error Room Availability not updated"
+      redirect_to admin_hotel_room_path(@hotel, @room_availability.room), alert: @room_availability.errors.full_messages.to_sentence
     end
   end
 

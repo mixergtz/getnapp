@@ -45,3 +45,15 @@ ul.dropdown-menu li a{
 .stars{
     color: $listing-stars-color;
 }
+
+//Errors
+#error_explanation{
+  border: 1px dashed $text-color;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  background-color: #fff;
+  h2{
+    text-align: center;
+  }
+}
