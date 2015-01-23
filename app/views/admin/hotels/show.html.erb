@@ -1,34 +1,23 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
 
-<p>
-  <strong>Name:</strong>
-  <%= @hotel.name %>
-</p>
+    <div class="panel panel-default">
+      <div class="panel-heading text-center">
+        <div class="row">
+          <div class="col-md-12"><h3><%= @hotel.name %></h3></div>
+        </div>
+      </div>
+      <div class="panel-heading">
+        <%= @hotel.description %>
+      </div>
+      <div class="panel-body">
+        <%= @hotel.address %>
+      </div>
+      <div class="panel-footer text-center">
+        <%= link_to 'Back', admin_hotels_path, class: "btn btn-default" %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Image:</strong>
-  <%= @hotel.image %>
-</p>
 
-<p>
-  <strong>Address:</strong>
-  <%= @hotel.address %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @hotel.description %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @hotel.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @hotel.longitude %>
-</p>
-
-<%#= link_to 'Edit', edit_hotel_path(@hotel) %> |
-<%#= link_to 'Back', hotels_path %>

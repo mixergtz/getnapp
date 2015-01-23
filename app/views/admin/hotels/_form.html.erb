@@ -25,17 +25,54 @@
   </div>
   <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_area :description, class: "form-control" %>
+    <%= f.text_area :description, class: "form-control", rows: 10 %>
   </div>
-  <div class="form-group">
-    <%= f.label :latitude %><br>
-    <%= f.text_field :latitude, class: "form-control" %>
+
+  <div class="row">
+    <div class="form-group col-md-6">
+      <%= f.label :latitude %><br>
+      <%= f.text_field :latitude, class: "form-control", id: "input-latitude" %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= f.label :longitude %><br>
+      <%= f.text_field :longitude, class: "form-control", id: "input-longitude" %>
+    </div>
+    <div class="col-md-12">
+      <div id="map-canvas"></div>
+    </div>
   </div>
-  <div class="form-group">
-    <%= f.label :longitude %><br>
-    <%= f.text_field :longitude, class: "form-control" %>
-  </div>
-  <div class="form-group actions">
+
+  <br>
+
+  <div class="form-group actions text-center">
     <%= f.submit "Save Hotel", class: "btn btn-primary" %>
   </div>
 <% end %>
+
+
+
+
+<script>
+  var map = new google.maps.Map(document.getElementById('map-canvas'), {
+      zoom: 15,
+      center: new google.maps.LatLng(6.2067854,-75.5703812),
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+
+  var myMarker = new google.maps.Marker({
+      position: new google.maps.LatLng(6.2067854,-75.5703812),
+      draggable: true
+  });
+
+  google.maps.event.addListener(myMarker, 'dragend', function(evt){
+      document.getElementById('input-latitude').value = evt.latLng.lat().toFixed(3);
+      document.getElementById('input-longitude').value = evt.latLng.lng().toFixed(3);
+  });
+
+  google.maps.event.addListener(myMarker, 'dragstart', function(evt){
+      document.getElementById('current').innerHTML = '<p>Currently dragging marker...</p>';
+  });
+
+  map.setCenter(myMarker.position);
+  myMarker.setMap(map);
+</script>
