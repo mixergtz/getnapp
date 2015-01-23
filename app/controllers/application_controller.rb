@@ -14,18 +14,14 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:sign_up) << :last_name
     end
 
-    def after_sign_up_path_for(resource)
-       admin_root_path if current_user.hotel_admin?
-       user_bookings if current_user.client?
-       # And if they are not a buyer or worker .. well. Redirect to root.
-       root_path
+    def after_sign_up_path_for(user)
+      user_bookings_path if user.client?
+      admin_root_path if user.hotel_admin?
     end
 
-    def after_sign_in_path_for(resource)
-       admin_root_path if current_user.hotel_admin?
-       user_bookings if current_user.client?
-       # And if they are not a buyer or worker .. well. Redirect to root.
-       root_path
+    def after_sign_in_path_for(user)
+      user_bookings_path if user.client?
+      admin_root_path if user.hotel_admin?
     end
 
 end
